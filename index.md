@@ -1,37 +1,13 @@
-## Welcome to GitHub Pages
+## Learning node representations using stationary flow prediction on large payment and cash transaction networks 
+### Ciwan Ceylan, Salla Franzén, Florian T. Pokorny
 
-You can use the [editor on GitHub](https://github.com/ciwanceylan/gated-gradient-flow/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Banks are required to analyse large transaction datasets as a part of the fight against financial crime. 
+Today, this analysis is either performed manually by domain experts or using expensive feature engineering.
+Gradient flow analysis allows for basic representation learning as node potentials can be inferred directly from network transaction data.
+However, the gradient model has a fundamental limitation: it cannot learn the harmonic component of network flows. 
+Furthermore, standard methods for learning the gradient flow are not appropriate for flow signals that span multiple orders of magnitude and contain outliers, i.e.\ transaction data.
+In this work, the gradient model is extended to a gated version and we prove that it, unlike the gradient model, is a universal approximator for flows on graphs.
+To tackle the mentioned challenges of transaction data, we propose a multi-scale and outlier robust loss function based on the Student-t log-likelihood.
+Ethereum transaction data is used for evaluation and the gradient models outperform linear and MLP models using hand-engineered features in terms of relative error.
+These results extend to 60 synthetic datasets, with experiments also showing that the gated gradient model learns qualitative information about the underlying synthetic generative flow distributions.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ciwanceylan/gated-gradient-flow/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
