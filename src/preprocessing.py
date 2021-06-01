@@ -179,62 +179,10 @@ def add_min_deg_pmap(graph: gt.Graph):
 
 
 def gt2dataprocgraph(graph: gt.Graph, flow_ep_name=None) -> dataproc.Graph:
-    edges = np.asarray(np.concatenate((graph.ep.source.a, graph.ep.target.a)))
+    edges = np.asarray(np.stack((graph.ep.source.a, graph.ep.target.a), axis=1))
     num_nodes = graph.num_vertices()
     if flow_ep_name is not None:
         flow = np.asarray(graph.ep[flow_ep_name].a)
     else:
         flow = None
     return dataproc.Graph(num_nodes=num_nodes, edges=edges, flow=flow)
-
-# def split_train_val_test(graph: gt.Graph,
-#                          desired_split=(0.7, 0.2, 0.1),
-#                          required_train: Optional[gt.EdgePropertyMap] = None,
-#                          required_val: Optional[gt.EdgePropertyMap] = None,
-#                          required_test: Optional[gt.EdgePropertyMap] = None,
-#                          return_graphs=False
-#                          ) -> Union[Tuple[gt.Graph, gt.Graph, gt.Graph], Tuple[np.ndarray, np.ndarray, np.ndarray]]:
-#     num_edges = graph.num_edges()
-#
-#     num_train, num_val, num_test = num_edges * np.concatenate(
-#         (np.asarray(desired_split)[:3] / np.sum(desired_split),
-#          np.zeros(max(0, 3 - len(desired_split)))))
-#
-#     num_val = int(num_val)
-#     num_test = int(num_test)
-#     num_train = num_edges - num_val - num_test
-#
-#     train_filter = graph.new_edge_property('bool', False) if required_train is None else required_train
-#     val_filter = graph.new_edge_property('bool', False) if required_val is None else required_val
-#     test_filter = graph.new_edge_property('bool', False) if required_test is None else required_test
-#
-#     rand_min_tree = gtutils.random_min_spanning_tree(graph)
-#     train_filter.a = np.logical_or(train_filter.a, rand_min_tree.a)
-#
-#     remaining_edge_indices = np.random.permutation(np.logical_not(
-#         train_filter.a | val_filter.a | test_filter.a).nonzero()[0])
-#
-#     if len(remaining_edge_indices) > 0:
-#         current_num_train = train_filter.a.sum().item()
-#         num_additional_train_edges = max(num_train - current_num_train, 0)
-#         train_filter.a[remaining_edge_indices[:num_additional_train_edges]] = True
-#         remaining_edge_indices = remaining_edge_indices[num_additional_train_edges:]
-#
-#         num_val = int((float(num_val) / (num_val + num_test)) * len(remaining_edge_indices))
-#         num_additional_val = max(num_val - val_filter.a.sum().item(), 0)
-#         val_filter.a[remaining_edge_indices[:num_additional_val]] = True
-#         remaining_edge_indices = remaining_edge_indices[num_additional_val:]
-#
-#         test_filter.a[remaining_edge_indices] = True
-#
-#     if return_graphs:
-#
-#         train_graph = gt.Graph(gt.GraphView(graph, efilt=train_filter), prune=True)
-#         val_graph = gt.Graph(gt.GraphView(graph, efilt=val_filter), prune=True)
-#         test_graph = gt.Graph(gt.GraphView(graph, efilt=test_filter), prune=True)
-#         return train_graph, val_graph, test_graph
-#     else:
-#         train_edges = train_filter.a.nonzero()[0]
-#         val_edges = val_filter.a.nonzero()[0]
-#         test_edges = test_filter.a.nonzero()[0]
-#         return train_edges, val_edges, test_edges
