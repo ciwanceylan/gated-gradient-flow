@@ -180,7 +180,7 @@ class Graph(object):
             (random_weights, (self.src_nodes, self.dst_nodes)), shape=(self.num_nodes, self.num_nodes)
         ).tocsr()
         min_tree = sp.csgraph.minimum_spanning_tree(adj).tocoo()
-        return np.stack((min_tree.row, min_tree.col), axis=1)
+        return np.stack((min_tree.row, min_tree.col), axis=1).astype(np.int64)
 
     def __repr__(self):
         return '{}({} nodes, {} edges)'.format(self.__class__.__name__, self.num_nodes, self.num_edges)
