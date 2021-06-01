@@ -1,0 +1,15 @@
+{
+  "init_config": {
+    "_class": "InitConfig",
+    "embedding_init": "auto-noise",
+    "auto_noise_std": 0.05,
+    "gates_init": "zeros",
+    "tol": 0.0001,
+    "max_steps": 300,
+    "beta": 1,
+    "embedding_dim": 3,
+    "min_gates_auto_weight": 1e-08,
+    "max_gates_auto_weight": 100.0,
+    "use_simple_gates": true
+  }
+}

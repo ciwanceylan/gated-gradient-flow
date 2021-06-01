@@ -1,0 +1,80 @@
+{
+  "hyperpara_config": {
+    "_class": "HyperParamConfig",
+    "gates_grad_noise": {
+      "add_gradient_noise": false,
+      "noise_interval": Infinity,
+      "std": 0.0
+    },
+    "emb_grad_noise": {
+      "add_gradient_noise": false,
+      "noise_interval": Infinity,
+      "std": 0.0
+    },
+    "embeddings_reg": {
+      "loss_fun": "L1Loss",
+      "weight": 0.0
+    },
+    "gates_reg": {
+      "loss_fun": "L1Loss",
+      "weight": 0.0
+    },
+    "use_proportional_noise": true,
+    "proportional_noise_cutoff": 1
+  },
+  "train_config": {
+    "_class": "TrainingConfig",
+    "max_steps": 18000,
+    "tol": 0.0001,
+    "max_gates_steps": 300,
+    "max_emb_steps": 300,
+    "substep_tol": 0.0001,
+    "lr": 0.01,
+    "gates_lr": 0.01,
+    "max_lbfgs_step": 20,
+    "use_lbfgs": false,
+    "use_bootstrap": false
+  },
+  "init_config": {
+    "_class": "InitConfig",
+    "embedding_init": "normal",
+    "auto_noise_std": 0.05,
+    "gates_init": "zeros",
+    "tol": 0.0001,
+    "max_steps": 300,
+    "beta": 1,
+    "embedding_dim": 3,
+    "min_gates_auto_weight": 1e-08,
+    "max_gates_auto_weight": 100.0,
+    "use_simple_gates": true
+  },
+  "eval_config": {
+    "_class": "EvalConfig",
+    "gt_num_emb_modes": 1,
+    "gt_num_gate_modes": 1,
+    "model_chp_path": null,
+    "best_val_eval_coeff": 0.97
+  },
+  "loss_config": {
+    "_class": "LossConfig",
+    "use_student_t_loss": true,
+    "nu": "auto",
+    "use_squared_weighting": false,
+    "min_flow_weight": 0.1,
+    "max_flow_weight": Infinity
+  },
+  "baseline_hyperpara_config": {
+    "_class": "BaselineHyperParamConfig",
+    "grad_noise": {
+      "add_gradient_noise": false,
+      "noise_interval": Infinity,
+      "std": 0.0
+    },
+    "reg": {
+      "loss_fun": "L1Loss",
+      "weight": 0.0
+    },
+    "use_proportional_noise": true,
+    "proportional_noise_cutoff": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "hyperpara_config": {
+    "_class": "HyperParamConfig",
+    "gates_grad_noise": {
+      "add_gradient_noise": false,
+      "noise_interval": Infinity,
+      "std": 0.0
+    },
+    "emb_grad_noise": {
+      "add_gradient_noise": false,
+      "noise_interval": Infinity,
+      "std": 0.0
+    },
+    "embeddings_reg": {
+      "loss_fun": "L1Loss",
+      "weight": 0.0
+    },
+    "gates_reg": {
+      "loss_fun": "L1Loss",
+      "weight": 0.5
+    },
+    "use_proportional_noise": true,
+    "proportional_noise_cutoff": 1
+  }
+}

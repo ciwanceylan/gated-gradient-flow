@@ -1,4 +1,15 @@
-/data
+data/*.gt
+sbatch_scripts/
+kladd.ipynb
+*.ipynb
+results/
+figures/
+debug_results/
+submission_results/
+tables/
+transferexperiments.sh
+upload_to_slurmcluster.sh
+
 # Created by https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,pycharm+all,visualstudiocode,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,jupyternotebooks,pycharm+all,visualstudiocode,vim
 
