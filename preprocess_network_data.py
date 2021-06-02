@@ -1,4 +1,5 @@
 import graph_tool.all as gt
+import pandas as pd
 from src import preprocessing as preproc
 
 
@@ -13,6 +14,8 @@ def prepare_ethereum():
     graph = preproc.preprocess_flow_graph(graph=graph, trim_size_threshold=0, resolve_methods={'value': 'minus'},
                                           remove_loop=True, trim=True, verbosity=2)
     graph.save("data/preprocessed_ethereum_2018_2020.gt")
+    if "name" in graph.vp:
+        pd.Series(graph.vp.name).to_csv("data/ethereum_node2name.csv")
     preproc.gt2dataprocgraph(graph, flow_ep_name='value').to_csv("data/preprocessed_ethereum_2018_2020.csv")
 
 
