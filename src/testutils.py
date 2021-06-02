@@ -84,6 +84,8 @@ def get_best_hp(df, hyper_parameter_columns, eval_col=("val_MeAE*", "val_MeAE"),
 
 
 def get_top_k_results(df, cols=None, eval_col=("val_MeAE*", "val_MeAE"), k=1, ascending=True) -> pd.DataFrame:
+    if isinstance(eval_col, tuple):
+        eval_col = list(eval_col)
     out = df.sort_values(by=eval_col, ascending=ascending).head(k)
     if cols:
         out = out.loc[:, cols]
