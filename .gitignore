@@ -1,7 +1,6 @@
 data/*.gt
 sbatch_scripts/
 kladd.ipynb
-*.ipynb
 results/
 figures/
 debug_results/
