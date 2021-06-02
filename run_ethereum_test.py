@@ -6,14 +6,7 @@ import torch
 import src.testutils as testutils
 import src.dataprocessing as dataproc
 import src.utils
-
-
-def split_baselines(baseline_df):
-    results = dict()
-    unique_baselines = baseline_df.baseline_name.unique()
-    for bl in unique_baselines:
-        results[bl] = baseline_df.loc[baseline_df.baseline_name == bl, :]
-    return results
+from src.testutils import split_baselines
 
 
 def main():

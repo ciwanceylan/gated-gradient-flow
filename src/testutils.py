@@ -207,3 +207,11 @@ def eval_grad_init_model(train_graph: dataproc.Graph, test_graph: dataproc.Graph
     }
 
     return test_res, pred, representations
+
+
+def split_baselines(baseline_df):
+    results = dict()
+    unique_baselines = baseline_df.baseline_name.unique()
+    for bl in unique_baselines:
+        results[bl] = baseline_df.loc[baseline_df.baseline_name == bl, :]
+    return results
