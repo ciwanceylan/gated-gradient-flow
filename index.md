@@ -1,6 +1,8 @@
 ## Learning node representations using stationary flow prediction on large payment and cash transaction networks 
 ### Ciwan Ceylan, Salla Franzén, Florian T. Pokorny
 
+<div style="text-align:center"><img src="learned_rep_close_crop.png" width="300"/></div>
+
 Banks are required to analyse large transaction datasets as a part of the fight against financial crime. 
 Today, this analysis is either performed manually by domain experts or using expensive feature engineering.
 Gradient flow analysis allows for basic representation learning as node potentials can be inferred directly from network transaction data.
