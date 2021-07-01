@@ -1,2 +1,5 @@
 theme: jekyll-theme-cayman
 remote_theme: tuur29/pages-themes-cayman
+
+title: Learning Node Representations Using Stationary Flow Prediction on Large Payment and Cash Transaction Networks
+description: Project page for the ICML2021 paper Learning Node Representations Using Stationary Flow Prediction on Large Payment and Cash Transaction Networks.
