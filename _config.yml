@@ -1,6 +1,6 @@
 theme: jekyll-theme-cayman
 
-title: Gated Gradient Flow
+titel: Gated Gradient Flow
 description: Project page for the ICML2021 paper Learning Node Representations Using Stationary Flow Prediction on Large Payment and Cash Transaction Networks.
 
 buttons:
