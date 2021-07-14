@@ -4,6 +4,8 @@ title: Gated Gradient Flow
 description: Project page for the ICML2021 paper Learning Node Representations Using Stationary Flow Prediction on Large Payment and Cash Transaction Networks.
 
 buttons:
+  paper_url: http://proceedings.mlr.press/v139/ceylan21a
+  paper_title: Paper
   data_url: https://kth.box.com/s/9f2lyy0s949mysqfy1ih0nfdarzgf5p4
   data_title: Ethereum data
   results_url: https://kth.box.com/s/3oqqy84a4gi81aqg5ya4fzc9kml9klug
